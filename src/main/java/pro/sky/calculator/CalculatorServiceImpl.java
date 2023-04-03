@@ -18,7 +18,15 @@ public class CalculatorServiceImpl implements CalculatorService {
         return (num1 * num2);
     }
     public double divideCalculator(int num1, int num2) {
-        return (num1 / (double) num2);
+        if (num2==0) {
+            throw new IllegalArgumentException("На ноль делить нельзя");
+        } else {
+            double result = (num1 / (double) num2);
+            if (result==-0.0) {
+                return 0.0;
+            }
+            else return result;
+        }
     }
 
 }
